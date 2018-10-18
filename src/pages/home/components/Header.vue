@@ -7,14 +7,20 @@
         <span class="iconfont arrow-icon">&#xe632;</span>
         输入城市/景点/游玩主题
       </div>
-      <div class="header-right">城市
-        <span class="iconfont">&#xe6aa;</span>
-      </div>
+      <router-link to="/City">
+        <div class="header-right">{{this.city}}
+          <span class="iconfont">&#xe6aa;</span>
+        </div>
+      </router-link>
     </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  computed: {
+    ...mapState(['city'])
+  }
 }
 </script>
 <style lang="stylus" scoped>
@@ -42,10 +48,12 @@ export default {
       color: #ccc
       border-radius:.1rem
     .header-right
-      width: 1.24rem
+      min-width: 1.04rem
+      padding: 0 0.1rem
       float: right
       text-align: center
       line-height: .86rem
+      color: #fff
       .arrow-icon
         font-size: .24rem
         margin-left: -.04rem
