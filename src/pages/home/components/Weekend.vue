@@ -4,8 +4,9 @@
       <p class="title-desc">周末去哪</p>
     </div>
     <ul>
-      <li class="item border-bottom" v-for="item of list"
-      :key=item.id>
+      <li class="item border-bottom"
+        v-for="item of list"
+        :key=item.id>
         <div class="item-img-wrap">
           <img class="item-img" :src="item.imgUrl" alt="当地人游深圳">
         </div>

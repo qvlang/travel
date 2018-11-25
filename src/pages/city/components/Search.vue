@@ -49,6 +49,7 @@ export default{
   },
   watch: {
     keyword () {
+      //函数去抖
       if (this.timer) {
         clearTimeout(this.timer)
       }

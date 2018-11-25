@@ -38,8 +38,9 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get('/api?city=' + this.city)
-        .then(this.getHomeInfoSucc)
+      axios.get('/api/index.json?city=' + this.city)
+      .then(this.getHomeInfoSucc)
+      .catch((err) => { throw err})
     },
     getHomeInfoSucc (res) {
       res = res.data
@@ -56,6 +57,7 @@ export default {
     this.lastCity = this.city
     this.getHomeInfo()
   },
+  //动态组件时触发
   activated () {
     if (this.lastCity !== this.city) {
       this.lastCity = this.city

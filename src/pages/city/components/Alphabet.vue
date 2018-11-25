@@ -1,15 +1,17 @@
 <template>
   <div>
-    <ul class="list">
+    <ul class="list clearfix">
       <li class="item"
-      v-for="item of letters"
-      :key="item"
-      :ref="item"
-      @click="handleLetterClick"
-      @touchstart="handletouchstart"
-      @touchmove="handletouchmove"
-      @touchend="handletouchend"
-    >{{item}}</li>
+        v-for="item of letters"
+        :key="item"
+        :ref="item"
+        @click="handleLetterClick"
+        @touchstart="handletouchstart"
+        @touchmove="handletouchmove"
+        @touchend="handletouchend"
+      >
+      {{item}}
+      </li>
     </ul>
   </div>
 </template>
@@ -46,6 +48,7 @@ export default{
       this.startFlag = true
     },
     handletouchmove (e) {
+      //函数节流避免事件过快执行
       if (this.startFlag) {
         if (this.timer) {
           clearTimeout(this.timer)
@@ -71,9 +74,8 @@ export default{
     flex-direction: column
     justify-content: center
     position: absolute
-    top: 1.58rem
-    right: 0
-    bottom: 0
+    top: 2.2rem
+    right: 0.1rem
     .item
       line-height: .4rem
       text-align: center

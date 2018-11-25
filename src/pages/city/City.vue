@@ -4,8 +4,10 @@
     <city-search :obj="cities"></city-search>
     <city-list :list="cityList" :obj="cities" :letter="letter">
     </city-list>
-    <city-alphabet :obj="cities"
-    @change="handleLetterChange"></city-alphabet>
+    <city-alphabet
+    :obj="cities"
+    @change="handleLetterChange"
+    ></city-alphabet>
   </div>
 </template>
 <script>
@@ -31,8 +33,9 @@ export default {
   },
   methods: {
     getCityInfo () {
-      axios.get('/api/city')
+      axios.get('/api/city.json')
         .then(this.getCityInfoSucc)
+        .catch((err) => { throw err})
     },
     getCityInfoSucc (res) {
       res = res.data

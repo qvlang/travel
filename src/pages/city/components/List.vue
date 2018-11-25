@@ -1,5 +1,5 @@
 <template>
-  <div class="list" ref="wrapper">
+  <div class="list clearfix" ref="wrapper">
     <div>
       <div class="area">
         <div class="title border-topbottom">当前城市</div>
@@ -14,7 +14,9 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="city-btn">
-          <div class="btn-wrap" v-for="item of list" :key="item.id"
+          <div class="btn-wrap"
+          v-for="item of list"
+          :key="item.id"
           @click="handleCityChoose(item.name)"
           >
             <div class="btn">{{item.name}}</div>
@@ -80,7 +82,6 @@ export default{
     &:before
       border-color: #ccc
   .list
-    overflow: hidden
     position: absolute
     top: 1.58rem
     left: 0

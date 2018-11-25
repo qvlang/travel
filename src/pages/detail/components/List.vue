@@ -1,11 +1,15 @@
 <template>
   <div>
-    <div class="item" v-for="(item, index) of list">
+    <div
+      class="item"
+      v-for="(item, index) of list"
+      :key="index"
+    >
       <div class="item-title border-bottom">
         <span class="item-title-icon"></span>
         {{item.title}}
       </div>
-      <div v-if="item.children">
+      <div v-if="item.children">   
         <detail-list :list="item.children"></detail-list>
       </div>
     </div>
@@ -14,6 +18,7 @@
 
 <script>
 export default{
+  //递归组件
   name: 'DetailList',
   props: {
     list: Array

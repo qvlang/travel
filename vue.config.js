@@ -52,10 +52,9 @@ module.exports = {
   hotOnly: false,
   proxy: {
     '/api': {
-      target: 'http://localhost:3000',
-      changeOrigin: true,               // needed for virtual hosted sites
+      target: 'http://localhost:8080',
       ws: true,                         // proxy websockets
-      pathRewrite: {'^/api' : '/api'}
+      pathRewrite: {'^/api' : '/mock'}
     }
   }, // 设置代理
   before: app => {}

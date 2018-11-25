@@ -33,11 +33,13 @@ export default{
   },
   methods: {
     getDetailInfo () {
-      axios.get('/api/detail?id', {
+      axios.get('/api/detail.json', {
         params: {
           id: this.$route.params.id
         }
-      }).then(this.handleGetDataSucc)
+      })
+      .then(this.handleGetDataSucc)
+      .catch((err) => { throw err})
     },
     handleGetDataSucc (res) {
       res = res.data
